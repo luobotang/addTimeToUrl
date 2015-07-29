@@ -1,5 +1,13 @@
 # addTimeToUrl
-add timestamp to url
+
+This is a simple function, used to add timestamp to url.
+
+e.g.
+```javascript
+addTimeToUrl('http://www.sample.com/path.html');
+// return:
+// "http://www.sample.com/path.html?v=1438165051488"
+```
 
 # install
 
