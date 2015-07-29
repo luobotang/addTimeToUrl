@@ -10,6 +10,8 @@ function test__addTimeToUrl() {
 	];
 
 	for (var i = 0, len = cases.length; i < len; i++) {
-		console.log('Input: ' + cases[i] + '\nOutput: ' + addTimeToUrl(cases[i]));
+		console.log('Input: ' + cases[i] + '\nOutput: ' + addTimeToUrl(cases[i]) + '\n');
 	}
 }
+
+test__addTimeToUrl();

@@ -54,4 +54,4 @@
 		window.XSM_addTimeToUrl = addTimeToUrl;
 	}
 
-)();
+})();
