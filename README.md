@@ -1,6 +1,12 @@
 # addTimeToUrl
 add timestamp to url
 
+# install
+
+```hash
+npm install add_time_to_url
+```
+
 # usage
 
 `addTimeToUrl` is a simple function, used as CommonJS Module:
