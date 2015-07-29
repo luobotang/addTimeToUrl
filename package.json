@@ -1,0 +1,22 @@
+{
+  "name": "add_time_to_url",
+  "version": "0.1.0",
+  "description": "add timestamp to url",
+  "main": "addTimeToUrl.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/luobotang/addTimeToUrl.git"
+  },
+  "keywords": [
+    "url"
+  ],
+  "author": "luobotang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luobotang/addTimeToUrl/issues"
+  },
+  "homepage": "https://github.com/luobotang/addTimeToUrl#readme"
+}
