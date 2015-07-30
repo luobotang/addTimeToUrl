@@ -14,38 +14,50 @@
 	 *        http://www.sample.com/path.html?param=value&v=1438161290674#hash
 	 */
 	function addTimeToUrl(url) {
-		if (typeof url !== 'string') {
+		// 只对含有 .htm 的 url 进行处理
+		if (!url || typeof url !== 'string' || url.indexOf('.htm') === -1) {
 			return url;
 		}
-		var path, searh, hash;
 
-		var searchIndex = url.indexOf('?');
-		var hashIndex = url.indexOf('#');
+		var rest = url;
 
-		if (hashIndex === -1) {
-			hashIndex = url.length;
-		}
+		// 处理 hash
+		var hashIndex = rest.indexOf('#');
+		var hash;
 
-		// 没有查询参数，或 ? 出现在 # 之后，此时视为 hash 的一部分，没有查询参数
-		if (searchIndex === -1 || searchIndex > hashIndex) {
-			searchIndex = hashIndex;
-		}
-
-		path = url.substring(0, searchIndex);
-		searh = url.substring(searchIndex, hashIndex);
-		hash = url.substring(hashIndex);
-
-		// 将时间加入查询参数
-		var time = +new Date();
-		if (searh) {
-			// 已有 v 参数，视为已添加时间戳，直接返回原始 url
-			if (searh.indexOf('?v=') > - 1 || searh.indexOf('&v=') > -1) return url;
-			searh = searh + '&v=' + time;
+		if (hashIndex > -1) {
+			hash = rest.substr(hashIndex);
+			rest = rest.slice(0, hashIndex);
 		} else {
-			searh = '?v=' + time;
+			hash = '';
 		}
 
-		return path + searh + hash;
+		// 处理 search
+		var searchIndex = rest.indexOf('?');
+		var search;
+
+		if (searchIndex > -1) {
+			search = rest.substr(searchIndex);
+			rest = rest.slice(0, searchIndex);
+
+			// 已有 v 参数，视为已添加时间戳，直接返回原始 url
+			if (search.indexOf('?v=') > - 1 || search.indexOf('&v=') > -1) {
+				return url;
+			}
+		} else {
+			search = '';
+		}
+
+		var path = rest;
+
+		search = search.length > 1 ? search + '&' + generateTimeParam() : '?' + generateTimeParam();
+
+		return path + search + hash;
+	}
+
+	// 生成时间参数
+	function generateTimeParam() {
+		return 'v=' + (+new Date());
 	}
 
 	if (typeof exports == 'object') {
