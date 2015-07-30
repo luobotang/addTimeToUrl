@@ -15,7 +15,7 @@
 	 */
 	function addTimeToUrl(url) {
 		// 只对含有 .htm 的 url 进行处理
-		if (!url || typeof url !== 'string' || url.indexOf('.htm') === -1) {
+		if (!url || typeof url !== 'string' || url.toLowerCase().indexOf('.htm') === -1) {
 			return url;
 		}
 
