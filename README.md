@@ -2,6 +2,8 @@
 
 This is a simple function, used to add timestamp to url.
 
+As part of [xsm-url-utils](https://github.com/xsm-ue/xsm-url-utils), this repo will not update.
+
 e.g.
 ```javascript
 addTimeToUrl('http://www.sample.com/path.html');
